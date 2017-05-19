@@ -16,14 +16,18 @@ program
     .command('c [name]')
     .description('generate component named [name]')
     .action(function (name) {
-        console.log('component %s ', name);
+        if (name === undefined)
+            program.outputHelp();
+        else
+            console.log('component %s ', name);
     });
 
 program.parse(process.argv);
 
-if (!process.argv.slice(2).length)
-    program.outputHelp();
-
 if (!program.version)
     console.log(program.version())
 
+if (!process.argv.slice(2).length || process.argv.slice(2)[0] !== 'c')
+    program.outputHelp();
+
+// console.log(process.argv.slice(2)[0])
