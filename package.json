@@ -1,25 +1,25 @@
 {
   "name": "cli-tool",
   "version": "0.0.1",
-  "description": "Making a basic CLI tool with node to greet people",
+  "description": "Making a basic CLI tool with node to generate react components in pirate studios projects",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "hello": "./index.js"
+    "generate": "./index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alvarotor/cli-tool.git"
+    "url": "git+https://github.com/piratestudios/cli-tool.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alvarotor/cli-tool/issues"
+    "url": "https://github.com/piratestudios/cli-tool/issues"
   },
-  "homepage": "https://github.com/alvarotor/cli-tool#readme",
+  "homepage": "https://github.com/piratestudios/cli-tool#readme",
   "dependencies": {
     "commander": "^2.9.0"
   }
