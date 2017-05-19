@@ -1,21 +1,21 @@
 #! /usr/bin/env node
 
 var program = require('commander');
+var package = require('./package.json');
 
 program
-    .version('0.0.1')
-    .option('-v, --version', 'The version of Hello CLI')
-    .option('-u, --username <username>', 'The user to greet')
-    .parse(process.argv);
+    .version(package.version)
 
-let args = process.argv.slice(2);
+program.on('--help', function () {
+    console.log('  Examples:');
+    console.log('');
+    console.log('    $ generate --help');
+    console.log('');
+});
 
-if (!program.username) {
-    console.log("Hello world!");
-    console.log("To greet somebody use -u, --username <username>");
-    console.log("Check version with -v, --version");
-} else
-    console.log('Hello, %s!', program.username);
+program.parse(process.argv);
+
+// let args = process.argv.slice(2);
 
 if (!program.version)
     console.log(program.version())
