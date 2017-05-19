@@ -12,4 +12,5 @@ npm -g install
 
 ```
 generate
+generate c name-of-component
 ```
