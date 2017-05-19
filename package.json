@@ -2,12 +2,12 @@
   "name": "cli-tool",
   "version": "0.0.2",
   "description": "Making a basic CLI tool with node to generate react components in pirate studios projects",
-  "main": "index.js",
+  "main": "generate.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "generate": "./index.js"
+    "generate": "./generate.js"
   },
   "repository": {
     "type": "git",
