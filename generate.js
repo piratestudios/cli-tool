@@ -2,6 +2,10 @@
 
 var program = require('commander');
 var pJson = require('./package.json');
+var createDirectory = require('./package.json').createDirectory;
+var createFiles = require('./utils/file').createFiles;
+var writeToFile = require('./utils/file').writeToFile;
+var createPjson = require('./utils/file').createPjson;
 
 const args = process.argv.slice(2)
 
