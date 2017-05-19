@@ -58,4 +58,4 @@ typings/
 .env
 
 #test files
-.src/
+./src/
