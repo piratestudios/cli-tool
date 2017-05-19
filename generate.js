@@ -2,10 +2,7 @@
 
 var program = require('commander');
 var pJson = require('./package.json');
-var createDirectory = require('./package.json').createDirectory;
-var createFiles = require('./utils/file').createFiles;
-var writeToFile = require('./utils/file').writeToFile;
-var createPjson = require('./utils/file').createPjson;
+var createComponent = require('./utils/create-component');
 
 const args = process.argv.slice(2)
 
@@ -22,7 +19,7 @@ program
     .command('c <name>')
     .description('generate component named <name>')
     .action(function (name) {
-        console.log('component %s', name);
+        createComponent(name);
     });
 
 program.parse(process.argv);
