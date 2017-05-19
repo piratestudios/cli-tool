@@ -1,6 +1,6 @@
 {
   "name": "cli-tool",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Making a basic CLI tool with node to generate react components in pirate studios projects",
   "main": "index.js",
   "scripts": {

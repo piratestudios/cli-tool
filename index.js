@@ -3,8 +3,7 @@
 var program = require('commander');
 var package = require('./package.json');
 
-program
-    .version(package.version)
+program.version(package.version)
 
 program.on('--help', function () {
     console.log('  Examples:');
