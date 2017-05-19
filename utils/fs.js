@@ -1,5 +1,6 @@
 var fs = require('fs');
 var base = process.cwd() + '/src/';
+var rimraf = require('rimraf');
 
 module.exports = {
     createDirectory: function (path) {
@@ -7,6 +8,12 @@ module.exports = {
             fs.mkdirSync(base);
         if (!fs.existsSync(base + path))
             fs.mkdirSync(base + path);
+    },
+
+    deleteDirectory: function (type, path, cb) {
+        path = base + type + "/" + path;
+        if (fs.existsSync(path))
+            rimraf(path, cb);
     },
 
     createFiles: function (extensions, name, component, template) {

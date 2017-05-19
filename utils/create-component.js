@@ -17,4 +17,4 @@ module.exports = function (name) {
     createFiles(extensions, name, type, 'internal data file');
 
     console.log('Done creating component %s.', name);
-}
+};

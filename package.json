@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/piratestudios/cli-tool#readme",
   "dependencies": {
-    "commander": "^2.9.0"
+    "commander": "^2.9.0",
+    "rimraf": "^2.6.1"
   }
 }
