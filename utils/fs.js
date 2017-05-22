@@ -1,5 +1,5 @@
 var fs = require('fs');
-var base = process.cwd() + '/src/';
+var base = `${process.cwd()}/src/`;
 var rimraf = require('rimraf');
 
 module.exports = {
@@ -24,7 +24,7 @@ module.exports = {
     },
 
     createFile: function (file, name, component, template) {
-        const path = base + component + '/' + name + '/' + file;
+        const path = `${base}${component}/${name}/${file}`;
         if (fs.existsSync(path))
             fs.unlinkSync(path);
         fs.openSync(path, 'w', (err) => {
@@ -35,10 +35,22 @@ module.exports = {
         });
     },
 
-    modifyFile: function (file, name, component, template) {
-        const path = base + component + '/' + name + '/' + file;
+    modifyFile: function (ext, name, type, template) {
+        const path = `${base}${type}/${name}/${name}.${type}.${ext}`;
         fs.writeFileSync(path, template, (err) => {
             if (err) throw err;
+        });
+    },
+
+    modifyLazyFile: function (name, type) {
+        const path = `${base}lazyLoading/loaderNameToPathMap.js`;
+        const lineNumber = 14;
+        const loadName = name.charAt(0).toUpperCase() + name.slice(1);
+        var data = fs.readFileSync(path).toString().split("\n");
+        data.splice(lineNumber, 0, `    load${loadName}: '${type}/${name}',`);
+        var file = data.join("\n");
+        fs.writeFile(path, file, function (err) {
+            if (err) return console.log(err);
         });
     }
 };

@@ -2,20 +2,21 @@ var createDirectory = require('./fs').createDirectory;
 var createFiles = require('./fs').createFiles;
 var createFile = require('./fs').createFile;
 var modifyFile = require('./fs').modifyFile;
+var modifyLazyFile = require('./fs').modifyLazyFile;
 
 module.exports = function (name) {
     console.log('Creating component %s...', name);
 
     const
         indexTemplate = require('../templates/templateIndex.js')(name),
-        jsxTemplate = require('../templates/templateIndex.jsx')(name),
-        scssTemplate = require('../templates/templateIndex.scss')(name),
-        testTemplate = require('../templates/templateIndex.test.js')(name),
-        nameTemplate = require('../templates/templateIndex.js')(name),
+        jsxTemplate = require('../templates/template.jsx')(name),
+        testTemplate = require('../templates/template.test.js')(name),
+        nameTemplate = require('../templates/template.js')(name),
         type = 'containers',
         extensions = [];
 
     extensions.push('.scss');
+    extensions.push('.css');
     extensions.push('.test.js');
     extensions.push('.jsx');
     extensions.push('.js');
@@ -23,11 +24,11 @@ module.exports = function (name) {
     createDirectory(type);
     createDirectory(type + "/" + name);
     createFiles(extensions, name, type, 'internal data');
-    modifyFile('index.js', name, type, indexTemplate);
-    createFile(`${name}.js`, name, type, nameTemplate);
-    createFile(`${name}.jsx`, name, type, jsxTemplate);
-    createFile(`${name}.test.js`, name, type, testTemplate);
-    createFile(`${name}.scss`, name, type, scssTemplate);
+    createFile('index.js', name, type, indexTemplate);
+    modifyFile(`js`, name, type, nameTemplate);
+    modifyFile(`jsx`, name, type, jsxTemplate);
+    modifyFile(`test.js`, name, type, testTemplate);
+    modifyLazyFile(name, type);
 
     console.log('Done creating component %s.', name);
 };

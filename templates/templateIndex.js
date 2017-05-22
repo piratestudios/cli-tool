@@ -1,3 +1,6 @@
 module.exports = function (name) {
-    return `export {default as ${name}} from './${name}';`;
+    return `
+import ${name} from './${name}';
+export default ${name};
+    `;
 }
