@@ -18,15 +18,20 @@ module.exports = {
 
     createFiles: function (extensions, name, component, template) {
         extensions.forEach((ext) => {
-            const path = base + component + '/' + name + '/' + name + '.' + component + ext;
-            if (fs.existsSync(path))
-                fs.unlinkSync(path);
-            fs.openSync(path, 'w', (err) => {
-                if (err) throw err;
-            });
-            fs.writeFileSync(path, template, (err) => {
-                if (err) throw err;
-            });
+            var file = name + '.' + component + ext;
+            module.exports.createFile(file, name, component, template);
+        });
+    },
+
+    createFile: function (file, name, component, template) {
+        const path = base + component + '/' + name + '/' + file;
+        if (fs.existsSync(path))
+            fs.unlinkSync(path);
+        fs.openSync(path, 'w', (err) => {
+            if (err) throw err;
+        });
+        fs.writeFileSync(path, template, (err) => {
+            if (err) throw err;
         });
     }
 };
