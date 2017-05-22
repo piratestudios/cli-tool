@@ -33,5 +33,12 @@ module.exports = {
         fs.writeFileSync(path, template, (err) => {
             if (err) throw err;
         });
+    },
+
+    modifyFile: function (file, name, component, template) {
+        const path = base + component + '/' + name + '/' + file;
+        fs.writeFileSync(path, template, (err) => {
+            if (err) throw err;
+        });
     }
 };
