@@ -6,6 +6,7 @@ module.exports = function (name) {
     console.log('Creating component %s...', name);
 
     const
+        indexTemplate = require('../templates/index.js')(name),
         type = 'containers',
         extensions = [];
 
@@ -17,7 +18,7 @@ module.exports = function (name) {
     createDirectory(type);
     createDirectory(type + "/" + name);
     createFiles(extensions, name, type, 'internal data file');
-    createFile('index.js', name, type, `export {default as ${name}} from './${name}'`);
+    createFile('index.js', name, type, indexTemplate);
 
     console.log('Done creating component %s.', name);
 };
