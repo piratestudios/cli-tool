@@ -3,13 +3,13 @@
 var program = require('commander');
 var pJson = require('./package.json');
 
-var createWidgetComponent = require('./utils/create-widget-component');
-var createPresentationalComponent = require('./utils/create-presentational-component');
-var createComponent = require('./utils/create-component');
-var createStatefulComponent = require('./utils/create-stateful-component');
-var createLocalRedux = require('./utils/create-local-redux');
-var createGlobalRedux = require('./utils/create-global-redux');
-var deleteComponent = require('./utils/delete-component');
+var createWidgetComponent = require('./creators/create-widget-component');
+var createPresentationalComponent = require('./creators/create-presentational-component');
+var createComponent = require('./creators/create-component');
+var createStatefulComponent = require('./creators/create-stateful-component');
+var createLocalRedux = require('./creators/create-local-redux');
+var createGlobalRedux = require('./creators/create-global-redux');
+var deleteComponent = require('./creators/delete-component');
 
 const args = process.argv.slice(2);
 

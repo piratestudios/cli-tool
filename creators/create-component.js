@@ -2,7 +2,7 @@ var createDirectory = require('./fs').createDirectory;
 var createFiles = require('./fs').createFiles;
 var createFile = require('./fs').createFile;
 var modifyFile = require('./fs').modifyFile;
-var modifyLazyFile = require('./fs').modifyLazyFile;
+var modifyLazyFileAdd = require('./fs').modifyLazyFileAdd;
 
 module.exports = function (name) {
     console.log('Creating component %s...', name);
@@ -25,10 +25,10 @@ module.exports = function (name) {
     createDirectory(type + "/" + name);
     createFiles(extensions, name, type, 'internal data');
     createFile('index.js', name, type, indexTemplate);
-    modifyFile(`js`, name, type, nameTemplate);
-    modifyFile(`jsx`, name, type, jsxTemplate);
-    modifyFile(`test.js`, name, type, testTemplate);
-    modifyLazyFile(name, type);
+    modifyFile('js', name, type, nameTemplate);
+    modifyFile('jsx', name, type, jsxTemplate);
+    modifyFile('test.js', name, type, testTemplate);
+    modifyLazyFileAdd(name, type);
 
     console.log('Done creating component %s.', name);
 };

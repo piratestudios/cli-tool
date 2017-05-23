@@ -42,15 +42,39 @@ module.exports = {
         });
     },
 
-    modifyLazyFile: function (name, type) {
-        const path = `${base}lazyLoading/loaderNameToPathMap.js`;
-        const lineNumber = 14;
-        const loadName = name.charAt(0).toUpperCase() + name.slice(1);
+    modifyLazyFileAdd: function (name, type) {
+        const path = `${base}utils/lazyLoading/loadersIndex.js`;
+        const textToFind = 'const loadersIndex = [\r';
+        const lineNumber = module.exports.getLineNumber(path, textToFind) + 1;
         var data = fs.readFileSync(path).toString().split("\n");
-        data.splice(lineNumber, 0, `    load${loadName}: '${type}/${name}',`);
+        data.splice(lineNumber, 0, `    { name: '${name}', importPath: '${type}/${name}' },`);
         var file = data.join("\n");
         fs.writeFile(path, file, function (err) {
             if (err) return console.log(err);
         });
+    },
+
+    modifyLazyFileDel: function (name, type) {
+        const path = `${base}utils/lazyLoading/loadersIndex.js`;
+        const textToFind = `    { name: '${name}', importPath: '${type}/${name}' },`;
+        const lineNumber = module.exports.getLineNumber(path, textToFind);
+        var data = fs.readFileSync(path).toString().split("\n");
+        data.splice(lineNumber, 1);
+        var file = data.join("\n");
+        fs.writeFile(path, file, function (err) {
+            if (err) return console.log(err);
+        });
+    },
+
+    getLineNumber: function (filename, textToFind) {
+        var data = fs.readFileSync(filename, 'utf8');
+        var lines = data.split("\n");
+        var n = 0;
+        for (var i = 0; i < lines.length; i++) {
+            if (lines[i] == textToFind)
+                n = i;
+            if (n > 0) break;
+        }
+        return n;
     }
 };

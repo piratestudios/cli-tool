@@ -1,4 +1,5 @@
 var deleteDirectory = require('./fs').deleteDirectory;
+var modifyLazyFileDel = require('./fs').modifyLazyFileDel;
 
 module.exports = function (name) {
     console.log('Deleting component %s...', name);
@@ -8,6 +9,7 @@ module.exports = function (name) {
 
     deleteDirectory(type, name, (err) => {
         if (err) throw err;
+        modifyLazyFileDel(name, type);
         console.log('Done deleting component %s.', name);
     });
 };
