@@ -11,8 +11,6 @@ module.exports = function (name) {
         type = 'stateful-components',
         extensions = [];
 
-    extensions.push('.scss');
-    extensions.push('.css');
     extensions.push('.test.js');
     extensions.push('.js');
 
