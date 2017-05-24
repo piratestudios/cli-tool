@@ -61,3 +61,5 @@ typings/
 src/containers
 src/redux
 src/widgets
+
+.idea

@@ -27,19 +27,13 @@ module.exports = {
         const path = `${base}${component}/${name}/${file}`;
         if (fs.existsSync(path))
             fs.unlinkSync(path);
-        fs.openSync(path, 'w', (err) => {
-            if (err) throw err;
-        });
-        fs.writeFileSync(path, template, (err) => {
-            if (err) throw err;
-        });
+        fs.openSync(path, 'w');
+        fs.writeFileSync(path, template);
     },
 
     modifyFile: function (ext, name, type, template) {
         const path = `${base}${type}/${name}/${name}.${ext}`;
-        fs.writeFileSync(path, template, (err) => {
-            if (err) throw err;
-        });
+        fs.writeFileSync(path, template);
     },
 
     modifyLazyFileAdd: function (name, type) {
