@@ -1,5 +1,8 @@
 var createDirectory = require('./fs').createDirectory;
 var createFiles = require('./fs').createFiles;
+var createFile = require('./fs').createFile;
+var modifyFile = require('./fs').modifyFile;
+var modifyLazyFileAdd = require('./fs').modifyLazyFileAdd;
 
 module.exports = function (name) {
     console.log('Creating widget component %s...', name);

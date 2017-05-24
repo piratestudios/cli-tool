@@ -60,3 +60,4 @@ typings/
 #test files
 src/containers
 src/redux
+src/widgets
