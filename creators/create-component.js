@@ -15,11 +15,11 @@ module.exports = function (name) {
         type = 'containers',
         extensions = [];
 
-    extensions.push('.scss');
-    extensions.push('.css');
-    extensions.push('.test.js');
-    extensions.push('.jsx');
-    extensions.push('.js');
+    extensions.push('scss');
+    extensions.push('css');
+    extensions.push('test.js');
+    extensions.push('jsx');
+    extensions.push('js');
 
     createDirectory(type);
     createDirectory(type + "/" + name);

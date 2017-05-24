@@ -3,7 +3,7 @@ module.exports = function (name) {
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
-import ${name} from './${name}';
+import ${name} from './${name}.jsx';
 
 function mapStateToProps(state) {
   return {

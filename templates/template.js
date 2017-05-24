@@ -1,9 +1,9 @@
 module.exports = function (name) {
-    return `
+  return `
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import ${name} from './${name}';
+import ${name} from './${name}.jsx';
 
 import './${name}.css';
 

@@ -11,8 +11,8 @@ module.exports = function (name) {
         type = 'stateful-components',
         extensions = [];
 
-    extensions.push('.test.js');
-    extensions.push('.js');
+    extensions.push('test.js');
+    extensions.push('js');
 
     createDirectory(type);
     createDirectory(type + "/" + name);

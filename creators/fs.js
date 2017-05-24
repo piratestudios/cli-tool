@@ -18,7 +18,7 @@ module.exports = {
 
     createFiles: function (extensions, name, component, template) {
         extensions.forEach((ext) => {
-            var file = name + '.' + component + ext;
+            var file = `${name}.${ext}`;
             module.exports.createFile(file, name, component, template);
         });
     },
@@ -36,7 +36,7 @@ module.exports = {
     },
 
     modifyFile: function (ext, name, type, template) {
-        const path = `${base}${type}/${name}/${name}.${type}.${ext}`;
+        const path = `${base}${type}/${name}/${name}.${ext}`;
         fs.writeFileSync(path, template, (err) => {
             if (err) throw err;
         });
