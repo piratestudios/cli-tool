@@ -22,14 +22,14 @@ program.on('--help', function () {
     console.log('  Examples:');
     console.log('');
     console.log('    generate w  <name-widget>');
-    console.log('    generate pc <name-presentational-component>');
     console.log('    generate c  <name-component>');
+    console.log('    generate pc <name-presentational-component>');
     console.log('    generate sc <name-stateful-component>');
     console.log('    generate lr <name-local-redux>');
     console.log('    generate gr <name-global-redux>');
     console.log('');
-    console.log('    generate d   <name-component-to-be-deleted>');
     console.log('    generate dw  <name-widget-to-be-deleted>');
+    console.log('    generate d   <name-component-to-be-deleted>');
     console.log('    generate dpc <name-presentational-to-be-deleted>');
     console.log('    generate dsc <name-stateful-to-be-deleted>');
     console.log('');
@@ -43,17 +43,17 @@ program
     });
 
 program
-    .command('pc <name>')
-    .description('Generate Presentational Component named <name>')
-    .action(function (name) {
-        createPresentationalComponent(name);
-    });
-
-program
     .command('c <name>')
     .description('Generate Component named <name>')
     .action(function (name) {
         createComponent(name);
+    });
+
+program
+    .command('pc <name>')
+    .description('Generate Presentational Component named <name>')
+    .action(function (name) {
+        createPresentationalComponent(name);
     });
 
 program
@@ -78,17 +78,17 @@ program
     });
 
 program
-    .command('d <name>')
-    .description('Delete Component named <name>')
-    .action(function (name) {
-        deleteComponent(name);
-    });
-
-program
     .command('dw <name>')
     .description('Delete Widget named <name>')
     .action(function (name) {
         deleteWidgetComponent(name);
+    });
+
+program
+    .command('d <name>')
+    .description('Delete Component named <name>')
+    .action(function (name) {
+        deleteComponent(name);
     });
 
 program
