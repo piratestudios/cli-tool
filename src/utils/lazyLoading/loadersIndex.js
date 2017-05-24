@@ -12,6 +12,8 @@
 //           ]
 
 const loadersIndex = [
+    { name: 'example', importPath: 'containers/example' },
+    { name: 'example', importPath: 'widgets/example' },
     { name: 'App', importPath: 'widgets/SomePage/index' },
     { name: 'Topic', importPath: 'widgets/SomePage/Topic' },
     { name: 'Home', importPath: 'widgets/SomePage/Home' },
