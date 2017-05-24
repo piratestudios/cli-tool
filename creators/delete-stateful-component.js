@@ -5,7 +5,7 @@ module.exports = function (name) {
     console.log('Deleting stateful component %s...', name);
 
     const
-        type = 'stateful-components';
+        type = 'stateful';
 
     deleteDirectory(type, name, (err) => {
         if (err) throw err;

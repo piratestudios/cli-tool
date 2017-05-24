@@ -1,14 +1,18 @@
 var createDirectory = require('./fs').createDirectory;
 var createFiles = require('./fs').createFiles;
+var createFile = require('./fs').createFile;
+var modifyFile = require('./fs').modifyFile;
+var modifyLazyFileAdd = require('./fs').modifyLazyFileAdd;
 
 module.exports = function (name) {
     console.log('Creating presentational component %s...', name);
 
     const
-        indexTemplate = require('../templates/templatePresentational.js')(name),
+        indexTemplate = require('../templates/templateIndex.js')(name),
+        nameTemplate = require('../templates/templatePresentational.js')(name),
         jsxTemplate = require('../templates/template.jsx')(name),
         testTemplate = require('../templates/template.test.js')(name),
-        type = 'presentational-component',
+        type = 'presentational',
         extensions = [];
 
     extensions.push('scss');

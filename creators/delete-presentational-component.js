@@ -5,7 +5,7 @@ module.exports = function (name) {
     console.log('Deleting presentational component %s...', name);
 
     const
-        type = 'presentational-components';
+        type = 'presentational';
 
     deleteDirectory(type, name, (err) => {
         if (err) throw err;

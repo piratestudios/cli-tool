@@ -61,5 +61,7 @@ typings/
 src/containers
 src/redux
 src/widgets
+src/presentational
+src/stateful
 
 .idea
