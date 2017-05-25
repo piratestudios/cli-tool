@@ -3,6 +3,10 @@ var base = `${process.cwd()}/src/`;
 var rimraf = require('rimraf');
 
 module.exports = {
+    existsDir: function (path) {
+        return fs.existsSync(base + path);
+    },
+
     createDirectory: function (path) {
         if (!fs.existsSync(base))
             fs.mkdirSync(base);
@@ -34,6 +38,10 @@ module.exports = {
     modifyFile: function (ext, name, type, template) {
         const path = `${base}${type}/${name}/${name}.${ext}`;
         fs.writeFileSync(path, template);
+    },
+
+    setFile: function (name, path, template) {
+        fs.writeFileSync(`${base}/${path}/${name}`, template);
     },
 
     modifyLazyFileAdd: function (name, type) {

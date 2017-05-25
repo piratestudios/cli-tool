@@ -12,6 +12,7 @@
 //           ]
 
 const loadersIndex = [
+    { name: 'sample', importPath: 'stateful/sample' },
     { name: 'App', importPath: 'widgets/SomePage/index' },
     { name: 'Topic', importPath: 'widgets/SomePage/Topic' },
     { name: 'Home', importPath: 'widgets/SomePage/Home' },

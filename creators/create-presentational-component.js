@@ -1,18 +1,13 @@
-var createDirectory = require('./fs').createDirectory;
-var createFiles = require('./fs').createFiles;
-var createFile = require('./fs').createFile;
-var modifyFile = require('./fs').modifyFile;
-var modifyLazyFileAdd = require('./fs').modifyLazyFileAdd;
+var setFile = require('./fs').setFile;
+var existsDir = require('./fs').existsDir;
 
-module.exports = function (name) {
+module.exports = function (name, type, component) {
     console.log('Creating presentational component %s...', name);
 
     const
-        indexTemplate = require('../templates/templateIndex.js')(name),
         nameTemplate = require('../templates/templatePresentational.js')(name),
         jsxTemplate = require('../templates/template.jsx')(name),
         testTemplate = require('../templates/template.test.js')(name),
-        type = 'presentational',
         extensions = [];
 
     extensions.push('scss');
@@ -21,14 +16,13 @@ module.exports = function (name) {
     extensions.push('jsx');
     extensions.push('js');
 
-    createDirectory(type);
-    createDirectory(type + "/" + name);
-    createFiles(extensions, name, type, 'internal data');
-    createFile('index.js', name, type, indexTemplate);
-    modifyFile('js', name, type, nameTemplate);
-    modifyFile('jsx', name, type, jsxTemplate);
-    modifyFile('test.js', name, type, testTemplate);
-    modifyLazyFileAdd(name, type);
+    if (existsDir(type) && existsDir(`${type}/${component}`)) {
+        setFile(`${name}.scss`, `${type}/${component}`, '');
+        setFile(`${name}.css`, `${type}/${component}`, '');
+        setFile(`${name}.js`, `${type}/${component}`, nameTemplate);
+        setFile(`${name}.jsx`, `${type}/${component}`, jsxTemplate);
+        setFile(`${name}.test.js`, `${type}/${component}`, testTemplate);
+    }
 
-    console.log('Done creating presentational-component %s.', name);
+    console.log('Done creating presentational component %s.', name);
 };

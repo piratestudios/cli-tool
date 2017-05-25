@@ -21,17 +21,16 @@ program.version(pJson.version);
 program.on('--help', function () {
     console.log('  Examples:');
     console.log('');
-    console.log('    generate w  <name-widget>');
-    console.log('    generate c  <name-component>');
-    console.log('    generate pc <name-presentational-component>');
-    console.log('    generate sc <name-stateful-component>');
-    console.log('    generate lr <name-local-redux>');
-    console.log('    generate gr <name-global-redux>');
+    console.log('    generate w  <name widget>');
+    console.log('    generate c  <name component>');
+    console.log('    generate pc <name presentational component> <widget/component> <name of the widget/component>');
+    console.log('    generate sc <name stateful component>');
+    console.log('    generate lr <name local redux>');
+    console.log('    generate gr <name global redux>');
     console.log('');
-    console.log('    generate dw  <name-widget-to-be-deleted>');
-    console.log('    generate d   <name-component-to-be-deleted>');
-    console.log('    generate dpc <name-presentational-to-be-deleted>');
-    console.log('    generate dsc <name-stateful-to-be-deleted>');
+    console.log('    generate dw  <name widget to be deleted>');
+    console.log('    generate d   <name component to be deleted>');
+    console.log('    generate dsc <name stateful to be deleted>');
     console.log('');
 });
 
@@ -50,10 +49,10 @@ program
     });
 
 program
-    .command('pc <name>')
-    .description('Generate Presentational Component named <name>')
-    .action(function (name) {
-        createPresentationalComponent(name);
+    .command('pc <name> <type> <component>')
+    .description('Generate Presentational Component named <name> in the component <component> of type <type>')
+    .action(function (name, type, component) {
+        createPresentationalComponent(name, type, component);
     });
 
 program
@@ -92,13 +91,6 @@ program
     });
 
 program
-    .command('dpc <name>')
-    .description('Delete Presentational named <name>')
-    .action(function (name) {
-        deletePresentationalComponent(name);
-    });
-
-program
     .command('dsc <name>')
     .description('Delete Stateful named <name>')
     .action(function (name) {
@@ -120,7 +112,6 @@ if (!args.length ||
         args[0] !== 'gr' &&
         args[0] !== 'd' &&
         args[0] !== 'dw' &&
-        args[0] !== 'dpc' &&
         args[0] !== 'dsc'
     ))
     program.outputHelp();
