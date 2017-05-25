@@ -22,7 +22,9 @@ module.exports = function (name, type, component) {
         setFile(`${name}.js`, `${type}/${component}`, nameTemplate);
         setFile(`${name}.jsx`, `${type}/${component}`, jsxTemplate);
         setFile(`${name}.test.js`, `${type}/${component}`, testTemplate);
-    }
+    } else
+        console.log('Path for the component not found.');
+
 
     console.log('Done creating presentational component %s.', name);
 };

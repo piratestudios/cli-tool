@@ -5,6 +5,7 @@ var pJson = require('./package.json');
 
 var createComponent = require('./creators/create-component');
 var createWidgetComponent = require('./creators/create-widget-component');
+var createComponentToWidget = require('./creators/create-component-to-widget');
 var createPresentationalComponent = require('./creators/create-presentational-component');
 var createStatefulComponent = require('./creators/create-stateful-component');
 var createLocalRedux = require('./creators/create-local-redux');
@@ -23,6 +24,7 @@ program.on('--help', function () {
     console.log('');
     console.log('    generate w  <name widget>');
     console.log('    generate c  <name component>');
+    console.log('    generate cw <name component> <name of the widget/component>');
     console.log('    generate pc <name presentational component> <widget/component> <name of the widget/component>');
     console.log('    generate sc <name stateful component>');
     console.log('    generate lr <name local redux>');
@@ -46,6 +48,13 @@ program
     .description('Generate Component named <name>')
     .action(function (name) {
         createComponent(name);
+    });
+
+program
+    .command('cw <type> <widget> <name>')
+    .description('Generate Component named <name> to widget <widget> of type <type>')
+    .action(function (type, widget, name) {
+        createComponentToWidget(type, widget, name);
     });
 
 program
@@ -107,6 +116,7 @@ if (!args.length ||
         args[0] !== 'w' &&
         args[0] !== 'pc' &&
         args[0] !== 'c' &&
+        args[0] !== 'cw' &&
         args[0] !== 'sc' &&
         args[0] !== 'lr' &&
         args[0] !== 'gr' &&
