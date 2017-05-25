@@ -23,9 +23,9 @@ module.exports = function (type, widget, name) {
         setFile(`${name}.js`, `${type}/${widget}`, nameTemplate);
         setFile(`${name}.jsx`, `${type}/${widget}`, jsxTemplate);
         setFile(`${name}.test.js`, `${type}/${widget}`, testTemplate);
+        console.log(`Done creating component ${name} in widget ${widget}.`);
     } else
         console.log('Path for the component not found.');
 
 
-    console.log(`Done creating component ${name} in widget ${widget}.`);
 };

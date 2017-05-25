@@ -12,8 +12,6 @@ var createLocalRedux = require('./creators/create-local-redux');
 var createGlobalRedux = require('./creators/create-global-redux');
 var deleteComponent = require('./creators/delete-component');
 var deleteWidgetComponent = require('./creators/delete-widget-component');
-var deletePresentationalComponent = require('./creators/delete-presentational-component');
-var deleteStatefulComponent = require('./creators/delete-stateful-component');
 
 const args = process.argv.slice(2);
 
@@ -26,13 +24,12 @@ program.on('--help', function () {
     console.log('    generate c  <name component>');
     console.log('    generate cw <widget/component> <name of the widget/component> <name component>');
     console.log('    generate pc <name presentational component> <widget/component> <name of the widget/component>');
-    console.log('    generate sc <name stateful component>');
+    console.log('    generate sc <name stateful component> <widget/component> <name of the widget/component>');
     console.log('    generate lr <name local redux>');
     console.log('    generate gr <name global redux>');
     console.log('');
     console.log('    generate dw  <name widget to be deleted>');
     console.log('    generate d   <name component to be deleted>');
-    console.log('    generate dsc <name stateful to be deleted>');
     console.log('');
 });
 
@@ -65,10 +62,10 @@ program
     });
 
 program
-    .command('sc <name>')
-    .description('Generate Stateful Component named <name>')
-    .action(function (name) {
-        createStatefulComponent(name);
+    .command('sc <name> <type> <component>')
+    .description('Generate Stateful Component named <name> in the component <component> of type <type>')
+    .action(function (name, type, component) {
+        createStatefulComponent(name, type, component);
     });
 
 program
@@ -99,13 +96,6 @@ program
         deleteComponent(name);
     });
 
-program
-    .command('dsc <name>')
-    .description('Delete Stateful named <name>')
-    .action(function (name) {
-        deleteStatefulComponent(name);
-    });
-
 program.parse(process.argv);
 
 if (!program.version)
@@ -121,7 +111,6 @@ if (!args.length ||
         args[0] !== 'lr' &&
         args[0] !== 'gr' &&
         args[0] !== 'd' &&
-        args[0] !== 'dw' &&
-        args[0] !== 'dsc'
+        args[0] !== 'dw'
     ))
     program.outputHelp();
