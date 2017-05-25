@@ -8,7 +8,7 @@ module.exports = function (name) {
     const
         fileTemplate = require('../templates/templateDuck.js')(name),
         fileName = `${name}.ducks.js`,
-        type = 'containers',
+        type = 'components',
         extensions = [];
 
     extensions.push('ducks.js');

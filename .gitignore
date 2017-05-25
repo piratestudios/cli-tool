@@ -58,7 +58,7 @@ typings/
 .env
 
 #test files
-src/containers
+src/components
 src/redux
 src/widgets
 src/presentational

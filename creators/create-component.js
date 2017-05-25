@@ -12,7 +12,7 @@ module.exports = function (name) {
         jsxTemplate = require('../templates/template.jsx')(name),
         testTemplate = require('../templates/template.test.js')(name),
         nameTemplate = require('../templates/template.js')(name),
-        type = 'containers',
+        type = 'components',
         extensions = [];
 
     extensions.push('scss');
