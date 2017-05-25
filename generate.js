@@ -24,7 +24,7 @@ program.on('--help', function () {
     console.log('');
     console.log('    generate w  <name widget>');
     console.log('    generate c  <name component>');
-    console.log('    generate cw <name component> <name of the widget/component>');
+    console.log('    generate cw <widget/component> <name of the widget/component> <name component>');
     console.log('    generate pc <name presentational component> <widget/component> <name of the widget/component>');
     console.log('    generate sc <name stateful component>');
     console.log('    generate lr <name local redux>');
