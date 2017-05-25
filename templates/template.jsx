@@ -7,7 +7,6 @@ const ${name} = (props) => {
     return (
         <div>
         <h1>{props.greeting}</h1>
-        <button onClick={props.onClick}>click me</button>
         </div>
     )
 }
