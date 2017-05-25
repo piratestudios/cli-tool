@@ -1,3 +1,4 @@
+var createDirectory = require('./fs').createDirectory;
 var setFile = require('./fs').setFile;
 var existsDir = require('./fs').existsDir;
 
@@ -18,11 +19,13 @@ module.exports = function (type, widget, name) {
     extensions.push('js');
 
     if (existsDir(type) && existsDir(`${type}/${widget}`)) {
-        setFile(`${name}.scss`, `${type}/${widget}`, '');
-        setFile(`${name}.css`, `${type}/${widget}`, '');
-        setFile(`${name}.js`, `${type}/${widget}`, nameTemplate);
-        setFile(`${name}.jsx`, `${type}/${widget}`, jsxTemplate);
-        setFile(`${name}.test.js`, `${type}/${widget}`, testTemplate);
+        if (!existsDir(`${type}/${widget}/${name}`))
+            createDirectory(`${type}/${widget}/${name}`);
+        setFile(`${name}.scss`, `${type}/${widget}/${name}`, '');
+        setFile(`${name}.css`, `${type}/${widget}/${name}`, '');
+        setFile(`${name}.js`, `${type}/${widget}/${name}`, nameTemplate);
+        setFile(`${name}.jsx`, `${type}/${widget}/${name}`, jsxTemplate);
+        setFile(`${name}.test.js`, `${type}/${widget}/${name}`, testTemplate);
         console.log(`Done creating component ${name} in widget ${widget}.`);
     } else
         console.log('Path for the component not found.');
