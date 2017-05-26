@@ -31,6 +31,7 @@
 //      create-react-app team
 
 const loadersIndex = [
+    {name: 'ggg', importFn: () => (import('../../widgets/ggg'))},
     {name: 'yep', importFn: () => (import('../../widgets/yep'))},
     { name: 'App', importFn: () => (import('../../widgets/SomePage/index'))},
     { name: 'Topic', importFn: () => (import('../../widgets/SomePage/Topic'))},

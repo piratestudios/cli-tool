@@ -69,10 +69,10 @@ program
     });
 
 program
-    .command('lr <name>')
+    .command('lr <type> <component> <name>')
     .description('Generate Local Redux named <name>')
-    .action(function (name) {
-        createLocalRedux(name);
+    .action(function (type, component, name) {
+        createLocalRedux(type, component, name);
     });
 
 program

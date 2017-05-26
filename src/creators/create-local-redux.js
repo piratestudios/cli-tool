@@ -1,22 +1,19 @@
-var createDirectory = require('./fs').createDirectory;
-var createFiles = require('./fs').createFiles;
-var modifyFile = require('./fs').modifyFile;
+var setFile = require('./fs').setFile;
+var existsDir = require('./fs').existsDir;
 
-module.exports = function (name) {
+module.exports = function (type, component, name) {
     console.log('Creating local redux component %s...', name);
 
     const
         fileTemplate = require('../templates/templateDuck.js')(name),
         fileName = `${name}.ducks.js`,
-        type = 'components',
         extensions = [];
 
     extensions.push('ducks.js');
 
-    createDirectory(type);
-    createDirectory(type + "/" + name);
-    createFiles(extensions, name, type, '');
-    modifyFile('ducks.js', name, type, fileTemplate);
-
-    console.log('Done creating local redux %s.', name);
+    if (existsDir(type) && existsDir(`${type}/${component}`)) {
+        setFile(`${name}.ducks.js`, `${type}/${component}`, fileTemplate);
+        console.log('Done creating local redux %s.', name);
+    } else
+        console.log('Path for the component not found.');
 };
