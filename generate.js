@@ -3,15 +3,15 @@
 var program = require('commander');
 var pJson = require('./package.json');
 
-var createComponent = require('./creators/create-component');
-var createWidgetComponent = require('./creators/create-widget-component');
-var createComponentToWidget = require('./creators/create-component-to-widget');
-var createPresentationalComponent = require('./creators/create-presentational-component');
-var createStatefulComponent = require('./creators/create-stateful-component');
-var createLocalRedux = require('./creators/create-local-redux');
-var createGlobalRedux = require('./creators/create-global-redux');
-var deleteComponent = require('./creators/delete-component');
-var deleteWidgetComponent = require('./creators/delete-widget-component');
+var createComponent = require('./src/creators/create-component');
+var createWidgetComponent = require('./src/creators/create-widget-component');
+var createComponentToWidget = require('./src/creators/create-component-to-widget');
+var createPresentationalComponent = require('./src/creators/create-presentational-component');
+var createStatefulComponent = require('./src/creators/create-stateful-component');
+var createLocalRedux = require('./src/creators/create-local-redux');
+var createGlobalRedux = require('./src/creators/create-global-redux');
+var deleteComponent = require('./src/creators/delete-component');
+var deleteWidgetComponent = require('./src/creators/delete-widget-component');
 
 const args = process.argv.slice(2);
 
