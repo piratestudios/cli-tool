@@ -3,7 +3,7 @@ module.exports = function (name) {
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
-import ${name} from './${name}.jsx';
+import ${name}View from './${name}.jsx';
 
 function mapStateToProps(state) {
   return {
@@ -27,10 +27,11 @@ class ${name} extends PureComponent{
     this.state = {}
   }
 
-  render({greeting, handleButtonClick}){
+  render(){
+    const {greeting, handleButtonClick} = this.props
     return (
       <div>
-        <${name}Comp greeting={greeting} onClick={handleButtonClick} />
+        <${name}View greeting={greeting} onClick={handleButtonClick} />
       </div>
     )
   }

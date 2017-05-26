@@ -3,19 +3,22 @@ module.exports = function (name) {
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ${name} = (props) => {
+import './${name}.css';
+
+const ${name}View = (props) => {
     return (
         <div>
         <h1>{props.greeting}</h1>
+        <button onClick={props.onClick}>click me</button>        
         </div>
     )
 }
 
-${name}.propTypes = {
+${name}View.propTypes = {
     greeting: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
 }
 
-export default ${name};
+export default ${name}View;
     `;
 }

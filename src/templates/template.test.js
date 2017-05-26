@@ -1,7 +1,5 @@
 module.exports = function (name) {
     return `
-jest.mock('../../lazyLoading/lazyLoadersMap');
-jest.mock("../../translations/loadersMap");
 
 import React from 'react';
 import ReactDOM from 'react-dom';

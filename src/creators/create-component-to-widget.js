@@ -23,6 +23,7 @@ module.exports = function (type, widget, name) {
             createDirectory(`${type}/${widget}/${name}`);
         setFile(`${name}.scss`, `${type}/${widget}/${name}`, '');
         setFile(`${name}.css`, `${type}/${widget}/${name}`, '');
+        setFile(`index.js`, `${type}/${widget}/${name}`, indexTemplate);
         setFile(`${name}.js`, `${type}/${widget}/${name}`, nameTemplate);
         setFile(`${name}.jsx`, `${type}/${widget}/${name}`, jsxTemplate);
         setFile(`${name}.test.js`, `${type}/${widget}/${name}`, testTemplate);

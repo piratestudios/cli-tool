@@ -3,9 +3,7 @@ module.exports = function (name) {
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import ${name} from './${name}.jsx';
-
-import './${name}.css';
+import ${name}View from './${name}.jsx';
 
 function mapStateToProps(state) {
   return {
@@ -25,7 +23,7 @@ function mapDispatchToProps(dispatch) {
 const ${name} = (props) => {
   return (
     <div>
-      <${name} greeting={props.greeting} onClick={props.handleButtonClick} />
+      <${name}View greeting={props.greeting} onClick={props.handleButtonClick} />
     </div>
   )
 }
