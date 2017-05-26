@@ -23,7 +23,7 @@ module.exports = function (name) {
 
     createDirectory(type);
     createDirectory(type + "/" + name);
-    createFiles(extensions, name, type, 'internal data');
+    createFiles(extensions, name, type, '');
     createFile('index.js', name, type, indexTemplate);
     modifyFile('js', name, type, nameTemplate);
     modifyFile('jsx', name, type, jsxTemplate);

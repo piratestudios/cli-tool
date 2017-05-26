@@ -15,7 +15,7 @@ module.exports = function (name) {
 
     createDirectory(type);
     createDirectory(type + "/" + name);
-    createFiles(extensions, name, type, 'internal data');
+    createFiles(extensions, name, type, '');
     modifyFile('ducks.js', name, type, fileTemplate);
 
     console.log('Done creating local redux %s.', name);
