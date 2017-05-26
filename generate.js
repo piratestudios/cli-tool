@@ -22,10 +22,10 @@ program.on('--help', function () {
     console.log('');
     console.log('    generate w  <name widget>');
     console.log('    generate c  <name component>');
-    console.log('    generate cw <widget/component> <name of the widget/component> <name component>');
-    console.log('    generate pc <widget/component> <name of the widget/component> <name presentational component>');
-    console.log('    generate sc <widget/component> <name of the widget/component> <name stateful component>');
-    console.log('    generate lr <name local redux>');
+    console.log('    generate cw <widgets/components> <name of the widget/component> <name component>');
+    console.log('    generate pc <widgets/components> <name of the widget/component> <name presentational component>');
+    console.log('    generate sc <widgets/components> <name of the widget/component> <name stateful component>');
+    console.log('    generate lr <widgets/components> <name of the widget/component> <name redux file>');
     console.log('    generate gr <name global redux>');
     console.log('');
     console.log('    generate dw  <name widget to be deleted>');
