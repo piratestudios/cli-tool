@@ -25,7 +25,7 @@ module.exports = function (type, component, name) {
         setFile(`${name}.css`, `${type}/${component}/${name}`, '');
         setFile('index.js', `${type}/${component}/${name}`, indexTemplate);
         setFile(`${name}.js`, `${type}/${component}/${name}`, nameTemplate);
-        setFile(`${name}.test.js`, `${type}/${component}`, testTemplate);
+        setFile(`${name}.test.js`, `${type}/${component}/${name}`, testTemplate);
         setFile(`${name}.jsx`, `${type}/${component}/${name}`, jsxTemplate);
         console.log('Done creating stateful component %s.', name);
     } else
