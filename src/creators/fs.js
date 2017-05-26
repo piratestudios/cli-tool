@@ -49,7 +49,7 @@ module.exports = {
         const textToFind = 'const loadersIndex = [\r';
         const lineNumber = module.exports.getLineNumber(path, textToFind) + 1;
         var data = fs.readFileSync(path).toString().split("\n");
-        data.splice(lineNumber, 0, `    { name: '${name}', importPath: '${type}/${name}' },`);
+        data.splice(lineNumber, 0, `    {name: '${name}', importFn: () => (import('../../${type}/${name}'))},`);
         var file = data.join("\n");
         fs.writeFile(path, file, function (err) {
             if (err) return console.log(err);
