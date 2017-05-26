@@ -1,7 +1,7 @@
 var setFile = require('./fs').setFile;
 var existsDir = require('./fs').existsDir;
 
-module.exports = function (name, type, component) {
+module.exports = function (type, component, name) {
     console.log('Creating presentational component %s...', name);
 
     const
