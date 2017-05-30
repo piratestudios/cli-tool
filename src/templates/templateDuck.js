@@ -1,5 +1,7 @@
 module.exports = function (name) {
     return `
+import {EventTypes} from 'redux-segment';
+
 // ===============================================
 // Style Guide : we're trying out airbnb's ethos of only using redux for router transitions and network interactions
 // so try and use this file for only those if possible and keep rest state storage using local state.
@@ -7,5 +9,30 @@ module.exports = function (name) {
 // ===============================================
 
 // see https://github.com/erikras/ducks-modular-redux for how to structure this and naming conventions of the actions
+
+// Actions
+const SOME_ACTION = 'webclient/${name}/SOME_ACTION';
+const SOME_OTHER_ACTION = 'webclient/${name}/SOME_OTHER_ACTION';
+
+// Reducer
+export default function reducer(state = {}, action = {}) {
+  switch (action.type) {
+    // do reducer stuff
+    default:
+      return state;
+  }
+}
+
+// Action Creators
+export function someAction() {
+  // basic example of how to add analytics tracking   
+  return {type: SOME_ACTION, meta: {analytics: EventTypes.track}};
+}
+
+export function someOtherAction() {
+  return {type: SOME_OTHER_ACTION};
+}
+
+
     `;
 }
