@@ -5,7 +5,7 @@ module.exports = function (type, component, name) {
     console.log('Creating local redux component %s...', name);
 
     const
-        fileTemplate = require('../templates/templateDuck.js')(name),
+        fileTemplate = require('../templates/templateDuck.js')(component, name),
         fileName = `${name}.ducks.js`,
         extensions = [];
 
