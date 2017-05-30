@@ -5,7 +5,7 @@ module.exports = function (name) {
     console.log('Creating global redux component %s...', name);
 
     const
-        fileTemplate = require('../templates/templateDuck.js')(name),
+        fileTemplate = require('../templates/templateDuck.js')(null, name),
         fileName = `${name}.ducks.js`;
 
     createDirectory('redux');

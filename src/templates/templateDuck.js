@@ -1,4 +1,4 @@
-module.exports = function (name) {
+module.exports = function (component, name) {
     return `
 import {EventTypes} from 'redux-segment';
 
@@ -11,8 +11,8 @@ import {EventTypes} from 'redux-segment';
 // see https://github.com/erikras/ducks-modular-redux for how to structure this and naming conventions of the actions
 
 // Actions
-const SOME_ACTION = 'webclient/${name}/SOME_ACTION';
-const SOME_OTHER_ACTION = 'webclient/${name}/SOME_OTHER_ACTION';
+const SOME_ACTION = 'webclient/${component || name}/SOME_ACTION';
+const SOME_OTHER_ACTION = 'webclient/${component || name}/SOME_OTHER_ACTION';
 
 // Reducer
 export default function reducer(state = {}, action = {}) {
