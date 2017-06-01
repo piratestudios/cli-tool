@@ -29,7 +29,7 @@ const ${name} = (props) => {
 }
 
 ${name}.defaultProps = {
-  greeting: 'hello world'
+  greeting: '${name} greeting'
 }
 
 ${name}.propTypes = {
