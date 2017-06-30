@@ -27,6 +27,18 @@ class ${name} extends PureComponent{
     this.state = {}
   }
 
+/*
+  
+  componentWillReceiveProps(nextProps){
+     // componentWillReceive props can be called even when props haven't changed
+     // so if using this function, check values have changed before running any other code
+     if (props.someValue !== nextProps.someValue){
+        // then do some
+     }
+  }
+  
+*/  
+
   render(){
     const {greeting, handleButtonClick} = this.props
     return (
